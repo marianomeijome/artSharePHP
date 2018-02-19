@@ -1,0 +1,689 @@
+/*
+    Document   : style.css
+    Created on : June 20, 2015
+    Author     : Group 10
+    Description: styles for the Art gallery web site
+*/
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    text-align: center;  /* for IE */
+    background-image: url("../img/pattern1.png"); 
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*welcome message*/
+.welcome{
+  margin-left:25px;
+  font-size:12px;!important;
+  color:#7d1516;
+  display:inline;
+}
+
+/*special mas student work styles*/
+span, span:after {
+    font-weight: 600;
+    color: #efedce;
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+    letter-spacing: .1em;
+    padding: .2em 0 .25em 0;
+}
+
+span {
+    font-size: 1.5em;
+    z-index: 1;
+    text-shadow: .04em .04em 0 #9cb8b3;
+}
+
+span:after {
+    content: attr(data-shadow-text);
+    color: rgba(0,0,0,.35);
+    text-shadow: none;
+    position: absolute;
+    left: .0875em;
+    top: .0875em;
+    z-index: -1;
+    -webkit-mask-image: url(http://f.cl.ly/items/1t1C0W3y040g1J172r3h/mask.png);
+}
+@media only screen and (max-width : 900px) {
+  span{
+    font-size:1em;
+  }
+  .welcome{
+    display:none;
+  }
+}
+h2{
+  width:100%!important;
+    text-align: center;
+    background-color: #e4e4e4;
+    margin-top: 0;
+    padding: 10px 0px;
+    box-shadow: 4px 4px #dedede;
+    opacity:.6;
+}
+#wrapper {
+    text-align:left; /* reset text alignment */
+    width:100%; /* or a percentage, or whatever */
+    margin:0 auto; /* for the rest */
+}
+
+#curdate {
+    float:right;
+    margin-top: -20px;
+}
+
+/* nav bar styles*/
+.header{
+  position: fixed;
+  width: 100%;
+  z-index:200;
+}
+nav {
+  width: 100%;
+  margin: 0 auto;
+  background-image: url("../img/patterns08.jpg"); 
+  box-shadow: 0px 5px 0px #dedede;
+}
+nav ul {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+}
+nav ul li {
+  display: inline-block;
+}
+nav ul li a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #666;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 10px;
+}
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all .2s;
+}
+nav ul li a:hover {
+  color: #555;
+}
+/* special nav underline stroke */
+nav.stroke ul li a,
+nav.fill ul li a {
+  position: relative;
+}
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+}
+nav.stroke ul li a:hover:after {
+  width: 100%;
+}
+
+nav.fill ul li a {
+  transition: all 2s;
+}
+
+nav.fill ul li a:after {
+  text-align: left;
+  content: '.';
+  margin: 0;
+  opacity: 0;
+}
+nav.fill ul li a:hover {
+  color: #fff;
+  z-index: 1;
+}
+nav.fill ul li a:hover:after {
+  z-index: -10;
+  animation: fill 0.5s forwards;
+  -webkit-animation: fill 0.5s forwards;
+  -moz-animation: fill 0.5s forwards;
+  opacity: 1;
+}
+/* SHIFT */
+nav.shift ul li a {
+  position:relative;
+  z-index: 1;
+}
+nav.shift ul li a:hover {
+  color: #fff;
+}
+nav.shift ul li a:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 1px;
+  content: '.';
+  color: transparent;
+  background: #7d1516;
+  visibility: none;
+  opacity: 0;
+  z-index: -1;
+}
+nav.shift ul li a:hover:after {
+  opacity: 1;
+  visibility: visible;
+  height: 100%;
+}
+
+.navlogo{
+}
+.navlogo img{
+  margin:-20px 6px -20px -15px;
+}
+
+
+
+#menu-icon {
+
+	display: hidden;
+	width: 40px;
+	height: 40px;
+	background: #4C8FEC url(../img/menu-icon.png) center;
+  background-size: 100%;
+
+}
+
+a:hover#menu-icon {
+
+	background-color: #444;
+
+}
+
+/*MEDIA QUERY*/
+@media only screen and (max-width : 500px) {
+  
+  .projectimg{
+    width:300px !important;
+    height:300px !important;
+    transition: all .2s;
+  }
+  span{
+    font-size:.75em;
+  }
+}
+@media only screen and (max-width : 720px) {
+
+	.header {
+		position: fixed;
+    text-align: left;
+
+	}
+	
+
+	#menu-icon {
+
+		display:inline-block;
+
+	}
+
+	nav ul, nav:active ul {
+
+		display: none;
+		position: absolute;
+		padding: 10px;
+		background: #fff;
+		border: 5px solid #444;
+		top: 40px;
+		width: 50%;
+
+	}
+
+	nav li {
+
+		text-align: center;
+		width: 100%;
+		padding: 10px 0;
+		margin: 0;
+
+	}
+
+	nav:hover ul {
+
+		display: block;
+
+	}
+}
+
+
+/* Keyframes */
+@-webkit-keyframes fill {
+  0% {
+    width: 0%;
+    height: 1px;
+  }
+  50% {
+    width: 100%;
+    height: 1px;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    background: #333;
+  }
+}
+
+select {
+    width: 100%;
+    font-size:14px;
+    border: 2px solid #7d1516;
+    border-radius: 0px;
+    background-color: #f1f1f1;
+}
+
+#banner {
+    background-image: url("../img/campus-bg.jpg");
+    background-size: cover;
+    padding: 50px 0px 50px 0px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0px 5px 0px #dedede;
+    
+}
+
+#banner img {
+    width: 100px;
+    border: none;
+}
+
+
+#maintitle {
+    color: white;
+    font-size: 28pt;
+    font-weight: bold;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+
+}
+
+#subtitle {
+    color: #eee;
+    font-size: 14pt;
+    font-weight: bold;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+
+
+/* Double-color dashed line */
+
+.style-two {
+    border: 0;
+    border-bottom: 1px dashed #ccc;
+    background: #999;
+}
+
+/* styles of the favs cart */
+.fav a:hover{
+  color:red;
+}
+#shoppingcart {
+    width: 90px;
+    height: 70px;
+    text-align: center;
+    background-color: #FF9A35;
+    padding-top: 10px;
+}
+
+#shoppingcart a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#shoppingcart img {
+    width: 50px;
+    border: none;
+}
+
+#shoppingcart span {
+    display: block;
+}
+
+/* styles for the main content body */
+#mainbody {
+    width: 80%;
+    max-width:1000px;
+    margin: 0 auto;
+}
+
+#mainbody a {
+    text-decoration: none;
+    color: #7d1516;
+}
+
+#mainbody a:hover,
+#mainbody a:active,
+#mainbody a:focus
+{
+    text-decoration: underline;
+    color: #FF9A35;
+}
+
+
+/* styles of the project list table */
+.projects {
+    max-width: 800px;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 0px;
+}
+
+
+.projects li img{
+  width: 200%;
+  padding: 3px;
+  position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+}
+
+
+.projects li{
+  display: inline;
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.projectimg{
+  width:200px;
+  height:200px;
+  overflow:hidden;
+  margin: 0 auto;
+}
+
+/* styles of the project details table */
+.projectview {
+    width: 80%;
+    border-collapse: collapse;
+    font-family: 12px/18px "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mainpiece img{
+  max-width:80%;
+  box-shadow: 2px 2px 3px #ccc;
+
+}
+.mainpiece{
+  text-align:center;
+  padding-bottom:20px;
+}
+.projectview td {
+    vertical-align: top;
+}
+
+.projectview h4, table.projectview p {
+    margin: 10px 10px 25px 20px;
+    
+}
+
+.col2 {
+    text-align: left;
+    width: 100px;
+    padding: 10px;
+    border-radius: 4px 0px 0px 4px;
+    background-color: #eaeaea;
+}
+
+.col3 {
+    text-align: left;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 0px 4px 4px 0px;
+}
+
+.projectheader{
+    text-align: center;
+}
+.info{
+  max-width: 600px;
+}
+
+#artistname{
+    color: red;
+}
+/*styles for results page*/
+.results{
+  margin:0 auto;
+  list-style-type:none;
+    width: 200px;
+    height: 300px;
+    float: left;
+    text-align:center;
+}
+.results li img{
+ width:200px;
+}
+
+}
+/* styles for upload form */
+.uploadform{
+  width: 80%;
+  margin: 0 auto;
+  background-color: ;
+}
+.uploadform input{
+  width: 60%;
+  /*background-color: #eee;*/
+
+}
+.formlabel {
+  text-align: right;
+  height: 50px;
+}
+
+input[type=text]{
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: solid 2px #7d1516;
+  color: inherit;
+  display: block;
+  outline: 0;
+  padding: 0;
+  text-decoration: none;
+  width: 100%;
+  font-size:16px;
+}
+input:focus {
+  border-bottom: solid 2px #000;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+  outline: none;
+}
+input[type=button], input[type=submit] {
+    background-color: #7d1516;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    outline:none;
+    text-decoration: none;
+    margin: 10px 10px;
+    cursor: pointer;
+    max-width: 200px;
+}
+/*styles for user profile button*/
+.user input{
+  border:2px solid #ccc;
+  background-color:white;
+  color:#7d1516;
+  font-size:1em;
+}
+.user input:hover{
+  border:2px solid white;
+  background-color:#7d1516;
+  color:white;
+  font-size:1em;
+}
+/*styles for action buttons */
+.searchbutton{
+  margin-left: -10px!important;
+}
+.project-button{
+  text-align: center;
+  padding: 20px;
+}
+
+
+.project-button.delete-confirmed {
+    display: none;
+}
+
+.project-button.delete-initial span,
+.project-button.delete-confirmed span {
+    color: red;
+    font-family: 12px/18px "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    display: inline-block;
+    margin-left: 40px;
+}
+
+
+/*styles for login and registration forms*/
+div.login-container {
+    vertical-align: top;
+}
+
+div.login-container div.login {
+    vertical-align: top;
+    width: 400px;
+    margin-right: 50px;
+
+}
+div.login-container div.registration {
+    vertical-align: top;
+    border-left: 1px solid black;
+    padding-left: 100px;
+}
+
+div.login-container div {
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+/* styles of filters */
+#filter {
+    font-family: 12px/18px "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+
+/* styles of table pagination */
+.paginate_button,
+.paginate_button:hover{
+    font-size:12px;
+    line-height:20px;
+    min-width: 12px;
+    border: 1px solid #cacaca !important;
+    border-left: none !important;
+    padding: 0 7px !important;
+    margin: 0 !important;
+}
+
+.paginate_button.previous,
+.paginate_button.previous:hover {
+    border-left: 1px solid #cacaca !important;
+    border-radius: 3px 0 0 3px;
+}
+
+.paginate_button.next,
+.paginate_button.next:hover {
+    border-right: 1px solid #cacaca !important;
+    border-radius: 0 3px 3px 0;
+}
+
+.paginate_button.disabled {
+    border: 1px solid #AAA !important;
+    background-color: white;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #dcdcdc));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, white 0%, #dcdcdc 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -moz-linear-gradient(top, white 0%, #dcdcdc 100%);
+    /* FF3.6+ */
+    background: -ms-linear-gradient(top, white 0%, #dcdcdc 100%);
+    /* IE10+ */
+    background: -o-linear-gradient(top, white 0%, #dcdcdc 100%);
+    /* Opera 11.10+ */
+    background: linear-gradient(to bottom, white 0%, #dcdcdc 100%);
+    /* W3C */
+}
+
+.dataTables_info {
+    padding-top: 0 !important;
+    font-family: 12px/18px "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+/* styles of table sorter */
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc_disabled,
+table.dataTable thead .sorting_desc_disabled {
+    background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
+}
+table.dataTable thead .sorting_asc {
+    background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7);
+    background-color: #d0e6fb !important;
+}
+table.dataTable thead .sorting_desc {
+    background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAACMtMP///yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
+    background-color: #d0e6fb !important;
+}
+
+
+#footer {
+    min-height: 50px;
+    padding-top: 20px;
+    margin-top: 20px;
+    font-size: 80%;
+    color: #fff;
+    text-align: center;
+    background-color: #7D1516;
+    float: left;
+    width:100%;
+}
+.social {
+  padding:20px;
+}
+.social i{
+  margin:5px 15px 5px 15px;
+}
